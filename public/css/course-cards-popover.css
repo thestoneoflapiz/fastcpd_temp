@@ -1,0 +1,122 @@
+.kt-label--adjust {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.btn-bold {
+    color: white !important;
+}
+.btn-success.btn-bold:hover {
+    color: #15976c !important;
+}
+.btn-dark.btn-bold:hover {
+    color: #424242 !important;
+}
+.btn-warning.btn-bold:hover {
+    color: #e4a726 !important;
+}
+/*  
+    * Course-Card CSS
+    *
+    */
+.card-img {
+    height: 200px !important;
+}
+.card-price {
+    text-align: right;
+}
+.card-price--original {
+    text-decoration: line-through;
+    margin: auto;
+}
+.card-price--discounted {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.popover__wrapper {
+    position: relative;
+    display: inline-block;
+}
+.popover__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #000;
+}
+.popover__content--right {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: -10px;
+    left: 90%;
+    transform: translate(0, 10px);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: 410px;
+}
+.popover__content--left {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: -10px;
+    right: 90%;
+    transform: translate(0, 10px);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    width: 410px;
+}
+.popover__content--right:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    top: 50%;
+    left: -15px;
+    transform: rotate(270deg);
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #fff transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+.popover__content--left:before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    top: 50%;
+    right: -15px;
+    transform: rotate(90deg);
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #fff transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+.popover__wrapper:hover .popover__content--right,
+.popover__wrapper:hover .popover__content--left {
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -20px);
+    transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+.popover__wrapper:hover .popover__overlay {
+    opacity: 0.5;
+}
+
+@media only screen and (max-width: 600px) {
+    .popover__content--left {
+        display: none;
+    }
+    .popover__content--right {
+        display: none;
+    }
+}
+
+.kt-widget27 .kt-widget27__container{margin:1rem 0 !important;}

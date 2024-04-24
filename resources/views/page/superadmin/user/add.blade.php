@@ -1,0 +1,107 @@
+@extends('template.master_superadmin')
+@section('title', 'Users')
+@section('styles')
+<style>
+    .centered{margin:auto;}
+    .minimize > i{font-size:2rem !important;}
+    .hidden{display:none;}
+    .required{color:#fd397a;}
+</style>
+@endsection
+@section('content')
+<div class="kt-content kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="kt-portlet kt-portlet--height-fluid">
+                    <!-- begin:Feature action buttons -->
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">Create Superadmin User</h3>
+                        </div>
+                        <div class="kt-portlet__head-toolbar">
+                            <ul class="nav nav-pills nav-pills-sm nav-pills-label nav-pills-bold" role="tablist">
+                                <li class="nav-item"  data-toggle="kt-tooltip" data-placement="top" title="Go back to Superadmin Users">
+                                    <button type="button" class="btn btn-secondary btn-icon" onclick="window.location='/superadmin/users'"><i class="fa fa-arrow-left"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end:Feature action buttons -->
+                    <div class="kt-portlet__body">
+                        <form class="kt-form kt-form--label-left" id="form">
+                            <meta name="_token" content="{{ csrf_token() }}">
+                            <div class="kt-portlet__body">
+                                <div class="kt-form__content">
+                                    <div class="kt-alert m-alert--icon alert alert-danger kt-hidden" role="alert" id="user_edit_form_msg">
+                                        <div class="kt-alert__icon">
+                                            <i class="fa fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="kt-alert__text">&nbsp;Sorry! You have to complete the form requirements first!</div>
+                                        <div class="kt-alert__close">
+                                            <button type="button" class="close" data-close="alert" aria-label="Close">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-3 col-sm-12">Name <text class="required">*</text></label></label>
+                                    <div class="col-lg-7 col-md-9 col-sm-12">
+                                        <div class="kt-typeahead">
+                                            <input class="form-control" type="text" id="name" name="name" placeholder="Ricardo Suave" >
+                                        </div>
+                                        <span class="form-text text-muted"></span>
+                                    </div>
+                                </div>
+
+                                <div class="kt-form__seperator kt-form__seperator--dashed kt-form__seperator--space"></div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-3 col-sm-12">Email <text class="required">*</text></label></label>
+                                    <div class="col-lg-7 col-md-9 col-sm-12">
+                                        <div class="kt-typeahead">
+                                            <input class="form-control" type="text" id="email" name="email" placeholder="sampler@useremail.com" >
+                                        </div>
+                                        <span class="form-text text-muted"></span>
+                                    </div>
+                                </div>
+
+                                <div class="kt-form__seperator kt-form__seperator--dashed kt-form__seperator--space"></div>
+
+                                <div class="form-group row">
+                                    <label class="col-form-label col-lg-3 col-sm-12">Permissions <text class="required">*</text></label></label>
+                                    <div class="col-lg-7 col-md-9 col-sm-12">
+                                        <select class="form-control kt-select2" id="permissions" name="permissions" multiple="multiple">
+                                            <option value="announcement">Announcements</option>
+                                            <option value="settings">Site-Settings</option>
+                                            <option value="verification">Verifications</option>
+                                            <option value="purchase_setting">Purchase Settings</option>
+                                            <option value="report">Reports</option>
+                                            <option value="user">User</option>
+                                        </select>
+                                        <span class="form-text text-muted"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kt-portlet__foot">
+                                <div class=" ">
+                                    <div class="row">
+                                        <div class="col-lg-9 ml-lg-auto">
+                                            <button id="submit_form" class="btn btn-success">Save Superadmin User</button>
+                                            <button type="reset" class="btn btn-secondary">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section("scripts")
+<script src="{{asset('js/superadmin/users/user-add-page.js')}}" type="text/javascript"></script>
+@endsection
